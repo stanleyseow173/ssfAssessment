@@ -47,13 +47,28 @@
 						<span data-th-errors="*{password}" data-th-errorclass="error" style="color:red"></span>
 					</td>
 				</tr>
+				<tr data-th-if="${captcha.visible}" data-th-object="${captcha}">
+					<td> 
+						<label for="captcha" data-th-text="'What is '+ ${captcha.firstNum} + ' ' + ${captcha.operator} + ' ' + ${captcha.secondNum} + '?'"></label> 
+					</td>
+					<td>
+						<input type="text" id="answer" size="30" data-th-value="*{answer}" data-th-field="*{answer}"
+								placeholder="Answer" >
+					</td>
+				</tr>
 				<tr>
 					<td></td>
 					<td>
 						<button type="submit">Login</button>
 					</td>
 				</tr>
+				
 			</table>
 		</form>
+
+		<div data-th-unless="${null == error}">
+			<div>Error</div>
+			<code data-th-text="${error}" style="color:red"></code>
+		</div>
 	</body>
 </html>

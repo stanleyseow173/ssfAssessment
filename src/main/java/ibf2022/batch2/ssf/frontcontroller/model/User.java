@@ -14,6 +14,10 @@ public class User implements Serializable{
 
     private boolean authenticated = false;
 
+    private int attempts;
+
+    private String errorMsg;
+
     public String getUsername() {
         return username;
     }
@@ -32,7 +36,16 @@ public class User implements Serializable{
     public void setAuthenticated(boolean authenticated) {
         this.authenticated = authenticated;
     }
+    public int getAttempts() {
+        return attempts;
+    }
+    public void setAttempts(int attempts) {
+        this.attempts = attempts;
+    }
 
+    public void addAttempts(){
+        this.attempts +=1;
+    }
     
     
 }
